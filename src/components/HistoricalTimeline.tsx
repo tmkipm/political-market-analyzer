@@ -78,16 +78,10 @@ export default function HistoricalTimeline({ selectedTimeframe }: HistoricalTime
 
   useEffect(() => {
     processTimelineData();
-  }, [selectedTimeframe, selectedAlignment]);
+  }, [selectedTimeframe, selectedAlignment, processTimelineData]);
 
-  const alignmentColors = {
-    left: '#3b82f6',
-    right: '#ef4444', 
-    neutral: '#6b7280',
-    center: '#10b981'
-  };
 
-  const CustomTooltip = ({ active, payload }: { active?: boolean, payload?: any[], label?: string }) => {
+  const CustomTooltip = ({ active, payload }: { active?: boolean, payload?: Array<{ payload: TimelineDataPoint }>, label?: string }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (

@@ -120,7 +120,7 @@ export default function CorrelationAnalysis({ selectedTimeframe }: CorrelationAn
     calculateCorrelations();
   }, [selectedTimeframe]);
 
-  const CorrelationTooltip = ({ active, payload }: { active?: boolean, payload?: any[], label?: string }) => {
+  const CorrelationTooltip = ({ active, payload }: { active?: boolean, payload?: Array<{ payload: CorrelationData }>, label?: string }) => {
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
