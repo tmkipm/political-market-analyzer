@@ -18,7 +18,7 @@ export interface HistoricalData {
   volume: number;
 }
 
-// Key political-sensitive stocks and sectors
+// Key political-sensitive stocks and sectors (Expanded)
 export const POLITICAL_STOCKS = {
   // Healthcare - sensitive to healthcare policy
   healthcare: ['UNH', 'JNJ', 'PFE', 'ABBV', 'MRK'],
@@ -38,8 +38,26 @@ export const POLITICAL_STOCKS = {
   // Infrastructure - sensitive to infrastructure spending
   infrastructure: ['CAT', 'DE', 'UNP', 'CSX', 'NSC'],
   
+  // NEW: Renewable Energy - sensitive to climate policy
+  renewable: ['ENPH', 'SEDG', 'NEE', 'ICLN', 'QCLN'],
+  
+  // NEW: Cryptocurrency - sensitive to regulation & monetary policy
+  crypto: ['MSTR', 'COIN', 'RIOT', 'MARA', 'BITF'],
+  
+  // NEW: Commodities - sensitive to trade & economic policy
+  commodities: ['GLD', 'SLV', 'USO', 'DBA', 'PDBC'],
+  
+  // NEW: International Markets - sensitive to foreign policy
+  international: ['EFA', 'EEM', 'VWO', 'FXI', 'EWJ'],
+  
+  // NEW: Real Estate - sensitive to monetary & tax policy
+  realestate: ['VNQ', 'REIT', 'SPG', 'PLD', 'EXR'],
+  
+  // NEW: Cannabis - sensitive to federal drug policy
+  cannabis: ['TLRY', 'CGC', 'CRON', 'ACB', 'HEXO'],
+  
   // Market indices
-  indices: ['^GSPC', '^DJI', '^IXIC'] // S&P 500, Dow, Nasdaq
+  indices: ['^GSPC', '^DJI', '^IXIC', '^RUT', '^VIX'] // S&P 500, Dow, Nasdaq, Russell 2000, VIX
 };
 
 // Fetch current stock prices

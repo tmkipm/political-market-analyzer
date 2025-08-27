@@ -7,6 +7,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { TrendingUp, TrendingDown, Activity, Calendar, AlertCircle } from 'lucide-react';
 import RealTimeData from '@/components/RealTimeData';
 import PredictiveModel from '@/components/PredictiveModel';
+import HistoricalTimeline from '@/components/HistoricalTimeline';
+import CorrelationAnalysis from '@/components/CorrelationAnalysis';
 
 export default function Dashboard() {
   const [selectedTimeframe, setSelectedTimeframe] = useState('1M');
@@ -110,6 +112,12 @@ export default function Dashboard() {
             {/* AI Predictive Model */}
             <PredictiveModel selectedTimeframe={selectedTimeframe} />
 
+            {/* Historical Timeline & Analysis */}
+            <HistoricalTimeline selectedTimeframe={selectedTimeframe} />
+
+            {/* Statistical Correlation Analysis */}
+            <CorrelationAnalysis selectedTimeframe={selectedTimeframe} />
+
             {/* Political Events Timeline */}
             <Card>
               <CardHeader>
@@ -144,55 +152,74 @@ export default function Dashboard() {
             </Card>
 
             {/* Development Status */}
-            <Card className="bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border-green-200">
+            <Card className="bg-gradient-to-r from-green-50 to-blue-100 dark:from-green-900/20 dark:to-blue-800/20 border-green-200">
               <CardHeader>
                 <CardTitle className="text-green-700 dark:text-green-300">
-                  🚀 Development Progress - MVP Complete!
+                  🚀 Enhanced Political Market Analyzer - V2.0!
                 </CardTitle>
                 <CardDescription>
-                  Political Market Impact Analyzer - Full functionality delivered
+                  Advanced analytics, historical backtesting, and expanded market coverage
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="space-y-2 text-sm">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span>✅ Project structure & Next.js setup with TypeScript</span>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2 text-sm">
+                    <h4 className="font-semibold text-green-800">Core Features</h4>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <span>✅ Real-time market data (Alpha Vantage, Twelve Data)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <span>✅ AI predictive modeling with confidence scoring</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <span>✅ Political event classification (left/right/center)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <span>✅ Rate limiting & API optimization</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span>✅ API integrations configured (Alpha Vantage, Twelve Data) with rate limiting</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span>✅ Political event classification system with left/right market analysis</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span>✅ Real-time market data integration with live sector tracking</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span>✅ AI predictive modeling with confidence scoring</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span>✅ Political risk dashboard with upcoming events timeline</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span>✅ Development logging system for blog post documentation</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span>🎯 Ready for deployment and further enhancements</span>
+                  
+                  <div className="space-y-2 text-sm">
+                    <h4 className="font-semibold text-green-800">New Enhancements</h4>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <span>🆕 Historical backtesting (2020-2024 events)</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <span>🆕 Interactive timeline with Recharts visualization</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <span>🆕 Statistical correlation analysis</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <span>🆕 Expanded sectors (crypto, commodities, international)</span>
+                    </div>
                   </div>
                 </div>
-                <div className="mt-4 p-3 bg-green-100 border border-green-300 rounded-md">
-                  <p className="text-sm text-green-800 font-medium">
-                    🏆 <strong>MVP Status:</strong> Fully functional Political Market Impact Analyzer with real-time data, 
-                    AI predictions, and comprehensive political event analysis. Ready for production deployment!
-                  </p>
+                
+                <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="p-3 bg-green-100 border border-green-300 rounded-md">
+                    <p className="text-sm text-green-800 font-medium">
+                      📊 <strong>12 Historical Events:</strong> Real 2020-2024 political events with actual market impact data
+                    </p>
+                  </div>
+                  <div className="p-3 bg-blue-100 border border-blue-300 rounded-md">
+                    <p className="text-sm text-blue-800 font-medium">
+                      🎯 <strong>12 Market Sectors:</strong> Traditional + Crypto, Commodities, Cannabis, Real Estate
+                    </p>
+                  </div>
+                  <div className="p-3 bg-purple-100 border border-purple-300 rounded-md">
+                    <p className="text-sm text-purple-800 font-medium">
+                      📈 <strong>Advanced Analytics:</strong> Interactive charts, correlation analysis, performance tracking
+                    </p>
+                  </div>
                 </div>
               </CardContent>
             </Card>

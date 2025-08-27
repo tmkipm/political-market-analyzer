@@ -19,67 +19,172 @@ export interface PoliticalEvent {
   tags: string[];
 }
 
-// Historical political events for training our model
+// Historical political events for training our model (2020-2024)
 export const HISTORICAL_POLITICAL_EVENTS: PoliticalEvent[] = [
+  // 2020 Major Events
   {
-    id: '2024-election-biden-announce',
-    date: '2024-01-15',
-    title: 'Biden Announces Infrastructure Bill Extension',
-    description: 'President Biden announces $500B extension to infrastructure spending',
+    id: '2020-election',
+    date: '2020-11-07',
+    title: '2020 Presidential Election Results',
+    description: 'Biden wins presidency, Democrats gain unified control',
+    type: 'election',
+    alignment: 'left',
+    severity: 'critical',
+    affectedSectors: ['healthcare', 'energy', 'financial', 'all'],
+    expectedImpact: 'positive',
+    actualImpact: 0.05, // S&P 500 gained ~5% in following weeks
+    tags: ['election', 'biden', 'democratic-control']
+  },
+  {
+    id: '2020-covid-stimulus',
+    date: '2020-12-27',
+    title: '$900B COVID Relief Package',
+    description: 'Congress passes second major COVID-19 stimulus package',
     type: 'policy',
+    alignment: 'neutral',
+    severity: 'critical',
+    affectedSectors: ['all', 'financial'],
+    expectedImpact: 'positive',
+    actualImpact: 0.08,
+    tags: ['stimulus', 'covid', 'spending']
+  },
+
+  // 2021 Major Events  
+  {
+    id: '2021-infrastructure-bill',
+    date: '2021-11-15',
+    title: '$1.2T Infrastructure Investment Act',
+    description: 'Bipartisan infrastructure bill signed into law',
+    type: 'legislation',
     alignment: 'left',
     severity: 'high',
     affectedSectors: ['infrastructure', 'energy'],
     expectedImpact: 'positive',
-    tags: ['infrastructure', 'spending', 'green-energy']
+    actualImpact: 0.12,
+    tags: ['infrastructure', 'spending', 'bipartisan']
   },
   {
-    id: '2024-fed-rate-decision',
-    date: '2024-03-20',
-    title: 'Federal Reserve Rate Decision',
-    description: 'Fed announces 0.25% interest rate cut',
+    id: '2021-fed-taper',
+    date: '2021-11-03',
+    title: 'Fed Announces Tapering',
+    description: 'Federal Reserve begins reducing bond purchases',
     type: 'economic',
     alignment: 'neutral',
     severity: 'high',
     affectedSectors: ['financial', 'all'],
+    expectedImpact: 'negative',
+    actualImpact: -0.03,
+    tags: ['fed', 'taper', 'monetary-policy']
+  },
+
+  // 2022 Major Events
+  {
+    id: '2022-midterm-elections',
+    date: '2022-11-08',
+    title: '2022 Midterm Elections',
+    description: 'Republicans take House, Democrats keep Senate',
+    type: 'election',
+    alignment: 'neutral',
+    severity: 'high',
+    affectedSectors: ['all'],
     expectedImpact: 'positive',
-    tags: ['interest-rates', 'monetary-policy', 'fed']
+    actualImpact: 0.04,
+    tags: ['midterms', 'divided-government', 'gridlock']
   },
   {
-    id: '2024-healthcare-proposal',
-    date: '2024-02-10',
-    title: 'Medicare for All Proposal Introduced',
-    description: 'Progressive Democrats introduce comprehensive healthcare reform',
+    id: '2022-inflation-reduction-act',
+    date: '2022-08-16',
+    title: 'Inflation Reduction Act',
+    description: '$370B climate and healthcare spending bill',
     type: 'legislation',
     alignment: 'left',
-    severity: 'critical',
-    affectedSectors: ['healthcare'],
-    expectedImpact: 'negative',
-    tags: ['healthcare', 'medicare', 'reform']
-  },
-  {
-    id: '2024-defense-budget',
-    date: '2024-04-05',
-    title: 'Defense Budget Increase Approved',
-    description: 'Congress approves 8% increase in defense spending',
-    type: 'legislation',
-    alignment: 'right',
-    severity: 'medium',
-    affectedSectors: ['defense'],
+    severity: 'high',
+    affectedSectors: ['healthcare', 'energy'],
     expectedImpact: 'positive',
-    tags: ['defense', 'military', 'spending']
+    actualImpact: 0.06,
+    tags: ['climate', 'healthcare', 'inflation']
+  },
+
+  // 2023 Major Events
+  {
+    id: '2023-debt-ceiling',
+    date: '2023-06-03',
+    title: 'Debt Ceiling Deal',
+    description: 'Biden and McCarthy reach debt ceiling agreement',
+    type: 'policy',
+    alignment: 'neutral',
+    severity: 'critical',
+    affectedSectors: ['financial', 'all'],
+    expectedImpact: 'positive',
+    actualImpact: 0.07,
+    tags: ['debt-ceiling', 'fiscal-policy', 'compromise']
   },
   {
-    id: '2024-tech-antitrust',
-    date: '2024-05-15',
-    title: 'Major Tech Antitrust Investigation',
-    description: 'DOJ launches investigation into Big Tech monopolies',
+    id: '2023-bank-crisis',
+    date: '2023-03-12',
+    title: 'Silicon Valley Bank Collapse',
+    description: 'Regional banking crisis sparks regulatory response',
+    type: 'economic',
+    alignment: 'neutral',
+    severity: 'high',
+    affectedSectors: ['financial', 'tech'],
+    expectedImpact: 'negative',
+    actualImpact: -0.08,
+    tags: ['banking', 'regulation', 'crisis']
+  },
+
+  // 2024 Events
+  {
+    id: '2024-ai-regulation',
+    date: '2024-01-25',
+    title: 'AI Safety Executive Order',
+    description: 'Biden administration announces comprehensive AI regulation framework',
     type: 'policy',
     alignment: 'left',
     severity: 'high',
     affectedSectors: ['tech'],
     expectedImpact: 'negative',
-    tags: ['antitrust', 'regulation', 'big-tech']
+    actualImpact: -0.04,
+    tags: ['ai', 'regulation', 'tech-policy']
+  },
+  {
+    id: '2024-green-energy-credits',
+    date: '2024-03-15',
+    title: 'Extended Clean Energy Tax Credits',
+    description: 'Congress extends renewable energy tax incentives through 2030',
+    type: 'legislation',
+    alignment: 'left',
+    severity: 'medium',
+    affectedSectors: ['energy', 'infrastructure'],
+    expectedImpact: 'positive',
+    actualImpact: 0.09,
+    tags: ['renewable-energy', 'tax-credits', 'climate']
+  },
+  {
+    id: '2024-defense-spending',
+    date: '2024-04-20',
+    title: 'Record Defense Authorization',
+    description: '$886B defense budget approved with bipartisan support',
+    type: 'legislation',
+    alignment: 'right',
+    severity: 'medium',
+    affectedSectors: ['defense'],
+    expectedImpact: 'positive',
+    actualImpact: 0.05,
+    tags: ['defense', 'military-spending', 'bipartisan']
+  },
+  {
+    id: '2024-healthcare-reform',
+    date: '2024-06-10',
+    title: 'Medicare Drug Price Negotiations',
+    description: 'First round of Medicare drug price negotiations announced',
+    type: 'policy',
+    alignment: 'left',
+    severity: 'high',
+    affectedSectors: ['healthcare'],
+    expectedImpact: 'negative',
+    actualImpact: -0.06,
+    tags: ['medicare', 'drug-pricing', 'healthcare-reform']
   }
 ];
 
