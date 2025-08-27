@@ -23,7 +23,7 @@ interface PredictionResult {
 export default function PredictiveModel({ selectedTimeframe }: PredictiveModelProps) {
   const [predictions, setPredictions] = useState<PredictionResult[]>([]);
   const [loading, setLoading] = useState(false);
-  const [modelAccuracy, setModelAccuracy] = useState(78.4); // Mock accuracy score
+  const [modelAccuracy] = useState(78.4); // Mock accuracy score
 
   const runPredictionModel = async () => {
     setLoading(true);
@@ -90,7 +90,7 @@ export default function PredictiveModel({ selectedTimeframe }: PredictiveModelPr
       for (const sector of sectors) {
         // Find relevant events for this sector
         const relevantEvents = upcomingEvents.filter(event => 
-          event.affectedSectors.includes(sector as any) || event.affectedSectors.includes('all' as any)
+          event.affectedSectors.includes(sector as 'healthcare' | 'energy' | 'defense' | 'financial' | 'tech' | 'infrastructure' | 'all') || event.affectedSectors.includes('all')
         );
 
         if (relevantEvents.length === 0) {
@@ -106,7 +106,7 @@ export default function PredictiveModel({ selectedTimeframe }: PredictiveModelPr
 
         // Use our political impact prediction model
         const impacts = relevantEvents.map(event => 
-          predictMarketImpact(event, sector as any)
+          predictMarketImpact(event, sector as 'healthcare' | 'energy' | 'defense' | 'financial' | 'tech' | 'infrastructure')
         );
 
         // Aggregate predictions

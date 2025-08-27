@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { fetchStockData, getSectorPerformance, POLITICAL_STOCKS } from '@/lib/market-data';
+import { fetchStockData, POLITICAL_STOCKS } from '@/lib/market-data';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { TrendingUp, TrendingDown, Activity, RefreshCw } from 'lucide-react';
